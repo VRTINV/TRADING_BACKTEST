@@ -385,8 +385,8 @@ for j in range(N-n-u-1):
         for i in range(n-u-1):
 
             xlinehigh=[]
-            DATAlinehigh=DATAhigh[i:i+u+1]
-            DATAvaluehigh=DATAhigh[i+u]
+            DATAlinehigh=DATAhigh[j+i:j+i+u+1]
+            DATAvaluehigh=DATAhigh[j+i+u]
             Alochigh,AMPhigh=DATA_fit(DATAlinehigh)
             for l in range(k):
                 try:
@@ -394,15 +394,15 @@ for j in range(N-n-u-1):
                 except:
                     xlinehigh.append([0 for l in range(p+1)])
             loc_xdata_high.append(xlinehigh)
-            loc_ydata_high.append(DATAhigh[i+u+1])
+            loc_ydata_high.append(DATAhigh[j+i+u+1])
         loc_xdata_high=numpy.array(loc_xdata_high)
         loc_ydata_high=numpy.array(loc_ydata_high)
         
         for i in range(n-u-1):
 
             xlinelow=[]
-            DATAlinelow=DATAlow[i:i+u+1]
-            DATAvaluelow=DATAlow[i+u]
+            DATAlinelow=DATAlow[j+i:j+i+u+1]
+            DATAvaluelow=DATAlow[j+i+u]
             Aloclow,AMPlow=DATA_fit(DATAlinelow)
             for l in range(k):
                 #print(j)
@@ -411,7 +411,7 @@ for j in range(N-n-u-1):
                 except:
                     xlinelow.append([0 for l in range(p+1)])
             loc_xdata_low.append(xlinelow)
-            loc_ydata_low .append(DATAlow[i+u+1])
+            loc_ydata_low .append(DATAlow[j+i+u+1])
         loc_xdata_low=numpy.array(loc_xdata_low)
         loc_ydata_low=numpy.array(loc_ydata_low)
     
@@ -547,8 +547,8 @@ for j in range(N-n-u-1):
     if METHOD == 'SLOW' :
         Phighdata=[]
         xlinehigh=[]
-        DATAlinehigh=DATAhigh[i:i+u+1]
-        DATAvaluehigh=DATAhigh[i+u]
+        DATAlinehigh=DATAhigh[j:j+u+1]
+        DATAvaluehigh=DATAhigh[j+u]
         Alochigh,AMPhigh=DATA_fit(DATAlinehigh)
         for l in range(k):
             try:
@@ -574,8 +574,8 @@ for j in range(N-n-u-1):
     if METHOD == 'SLOW' :
         Plowdata=[]
         xlinelow=[]
-        DATAlinelow=DATAlow[i:i+u+1]
-        DATAvaluelow=DATAlow[i+u]
+        DATAlinelow=DATAlow[j:j+u+1]
+        DATAvaluelow=DATAlow[j+u]
         Aloclow,AMPlow=DATA_fit(DATAlinelow)
         for l in range(k):
             try:
