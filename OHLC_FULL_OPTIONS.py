@@ -634,13 +634,13 @@ for j in range(N-n-u-1):
     
     STEPS.append(OPEN)    
 
-    EQUITY+=position*(STEPS[-1]-STEPS[-2])
+    EQUITY+=position*SIZE*trade_contract_size(STEPS[-1]-STEPS[-2])
 
     if Signal != position:
         PRICES.append(OPEN)
         print(f"TRADE OPEN @ {OPEN}")
         if len(PRICES)>1:
-            PL+=position*SIZE*(PRICES[-1] - PRICES[-2])
+            PL+=position*SIZE*trade_contract_size(PRICES[-1] - PRICES[-2])
         position=Signal    
     
             
