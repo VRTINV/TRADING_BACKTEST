@@ -143,22 +143,6 @@ def connect():
 connect()
 trade_contract_size=float(mt5.symbol_info(A).trade_contract_size)
 disconnect()
-
-        
-def close():
-    positions_total=mt5.positions_total()
-    if positions_total==0: 
-        isOpen=0
-    else :
-        isOpen=1
-
-    if isOpen != 0:
-        if not mt5.initialize():
-            print("initialize() failed, error code =",mt5.last_error())
-            quit()
-        result=mt5.Close(A)
-        print("ORDER CLOSED")
-        isOpen=0
           
 def get_values_open(S):
     rates = mt5.copy_rates_from_pos(A, mt5.TIMEFRAME_H1, 1, S)
