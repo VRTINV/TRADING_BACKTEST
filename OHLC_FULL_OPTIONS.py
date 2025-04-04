@@ -145,31 +145,31 @@ trade_contract_size=float(mt5.symbol_info(A).trade_contract_size)
 disconnect()
           
 def get_values_open(S):
-    rates = mt5.copy_rates_from_pos(A, mt5.TIMEFRAME_H1, 1, S)
+    rates = mt5.copy_rates_from_pos(A, TF, 1, S)
     ticks_frame = pd.DataFrame(rates)
     PRICE_array=ticks_frame['open'].to_numpy()
     return PRICE_array       
 
 def get_values_datas(N):
-    rates = mt5.copy_rates_from_pos(A, mt5.TIMEFRAME_H1, 1, N)
+    rates = mt5.copy_rates_from_pos(A, TF, 1, N)
     ticks_frame = pd.DataFrame(rates)
     PRICE_array=ticks_frame[['open','high','low']].to_numpy()
     return PRICE_array
 
 def get_values_close(N):
-    rates = mt5.copy_rates_from_pos(A, mt5.TIMEFRAME_H1, 1, N)
+    rates = mt5.copy_rates_from_pos(A, TF, 1, N)
     ticks_frame = pd.DataFrame(rates)
     PRICE_array=ticks_frame['close'].to_numpy()
     return PRICE_array
 
 def get_values_high(N):
-    rates = mt5.copy_rates_from_pos(A, mt5.TIMEFRAME_H1, 1, N)
+    rates = mt5.copy_rates_from_pos(A, TF, 1, N)
     ticks_frame = pd.DataFrame(rates)
     PRICE_array=ticks_frame['high'].to_numpy()
     return PRICE_array
 
 def get_values_low(N):
-    rates = mt5.copy_rates_from_pos(A, mt5.TIMEFRAME_H1, 1, N)
+    rates = mt5.copy_rates_from_pos(A, TF, 1, N)
     ticks_frame = pd.DataFrame(rates)
     PRICE_array=ticks_frame['low'].to_numpy()
     return PRICE_array
