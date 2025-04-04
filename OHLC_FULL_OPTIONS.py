@@ -448,8 +448,8 @@ for j in range(N-n-u-1):
                 tree_method=tree_method_high,
                 verbosity=verbosity_high
                 )
-    
-    modelhigh.fit(numpy.array(loc_xdata_high).reshape(s1h,s2h*s3h),numpy.array(loc_ydata_high))
+    if model_high_type == 'xgboost':
+        modelhigh.fit(numpy.array(loc_xdata_high).reshape(s1h,s2h*s3h),numpy.array(loc_ydata_high))
     
     if STANDARDIZATION_low == True :
         xmeanlow=loc_xdata_low.mean()
@@ -482,8 +482,8 @@ for j in range(N-n-u-1):
                         tree_method=tree_method_low,
                         verbosity=verbosity_low
                         )
-    
-    modellow.fit(numpy.array(loc_xdata_low).reshape(s1l,s2l*s3l),numpy.array(loc_ydata_low))
+    if model_low_type == 'xgboost':
+        modellow.fit(numpy.array(loc_xdata_low).reshape(s1l,s2l*s3l),numpy.array(loc_ydata_low))
     
     if STANDARDIZATION_ohlc == True :
         Xmean=loc_X.mean()
